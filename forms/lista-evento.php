@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
+<!-- ha25004 -->
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Sistema de Agua - POSEIDÓN</title>
+  <title>Lista de Eventos - Eventos Académicos</title>
 
   <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
   <script src="../js/color-thema.js"></script>
@@ -17,13 +17,12 @@
   <!--end::Accessibility Meta Tags-->
 
   <!--begin::Primary Meta Tags-->
-  <meta name="title" content="Sistema de Agua - POSEIDÓN" />  
-  <meta name="description" content="Sistema Administrativo y Financiero de Agua" />
-  <meta name="keywords" content="bootstrap 5, poseidon, agua potable, Sistema Administrativo y Financiero de Agua" />
+  <meta name="title" content="Lista de Eventos - Eventos Académicos" />
+  <meta name="description" content="Listado de eventos académicos y control de cupo disponible" />
+  <meta name="keywords" content="bootstrap 5, tabulator, eventos académicos, inscripciones, asistencia" />
   <!--end::Primary Meta Tags-->
 
   <!--begin::Accessibility Features-->
-  <!-- Skip links will be dynamically added by accessibility.js -->
   <meta name="supported-color-schemes" content="light dark" />
   <link rel="preload" href="../css/adminlte.css" as="style" />
   <!--end::Accessibility Features-->
@@ -47,17 +46,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.6.1/dist/css/tabulator_bootstrap5.min.css" crossorigin="anonymous" />
 
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 </head>
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
   <div class="app-wrapper">
-    <!--begin::Header-->
+    <!--begin::Header & Sidebar-->
     <?php
-    include "../menu-cabecera.php";
+    include "../nav.php";
     include "../menu-lateral.php";
     ?>
-    <!--end::Sidebar-->
+    <!--end::Header & Sidebar-->
+
     <main class="app-main">
       <div class="app-content-header">
         <div class="container-fluid">
@@ -69,7 +68,7 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Lista de Rutas</h3>
+              <h3 class="card-title">Lista de Eventos</h3>
               <div class="card-tools">
                 <div class="input-group input-group-sm" style="width: 16rem">
                   <span class="input-group-text">
@@ -81,37 +80,40 @@
             </div>
             <div class="card-body">
               <div class="d-flex gap-2 mb-3">
+                <a href="registro_evento.php" class="btn btn-sm btn-primary">
+                  <i class="bi bi-plus-lg me-1" aria-hidden="true"></i>
+                  Nuevo evento
+                </a>
                 <button id="print-table" type="button" class="btn btn-sm btn-outline-secondary">
                   <i class="bi bi-printer me-1" aria-hidden="true"></i>
                   Imprimir
                 </button>
               </div>
-              <div id="users-table" aria-label="Users"></div>
+              <div id="eventos-table" aria-label="Eventos"></div>
 
               <div class="mt-2 text-end">
                 <strong id="total-registros">Total de registros: 0</strong>
               </div>
-              
+
               <div id="table-pagination" class="d-flex flex-wrap gap-2 justify-content-end mt-2"></div>
             </div>
-
           </div>
         </div>
       </div>
     </main>
+
     <!--begin::Footer-->
     <?php
-    include "../pie.php";
+    include "../footer.php";
     ?>
     <!--end::Footer-->
   </div>
+
   <!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
   <!--end::Required Plugin(popperjs for Bootstrap 5)-->
   <!--begin::Required Plugin(Bootstrap 5)-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" crossorigin="anonymous">
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <!--end::Required Plugin(Bootstrap 5)-->
   <!--begin::Required Plugin(AdminLTE)-->
   <script src="../js/adminlte.js"></script>
@@ -120,13 +122,9 @@
   <script src="../js/para-el-menu.js"></script>
   <!--end::OverlayScrollbars Configure-->
 
-
-
   <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@6.6.1/dist/js/tabulator.min.js" crossorigin="anonymous"></script>
 
-
-  <script src="../js/JSlista-ruta.js?v=<?php echo filemtime('../js/JSlista-ruta.js'); ?>"></script>
-
+  <script src="../js/listaEvento.js?v=<?php echo filemtime('../js/listaEvento.js'); ?>"></script>
 </body>
 
 </html>

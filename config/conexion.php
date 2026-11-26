@@ -2,7 +2,7 @@
 $servidor = "localhost";
 $usuario = "root";
 $laclave = "";
-$bbdd = "sys_agua";
+$bbdd = "eventos_academicos";
 
 $conexion = new mysqli($servidor, $usuario, $laclave, $bbdd);
 

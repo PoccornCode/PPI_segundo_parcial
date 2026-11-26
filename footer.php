@@ -5,7 +5,7 @@
       <!--begin::Copyright-->
       <strong>
         Copyright &copy; 2026&nbsp;
-        <a href="https://partysv.com" class="text-decoration-none">Partysv.com</a>.
+        <a href="https://partysv.com" class="text-decoration-none">SysEdu.edu</a>.
       </strong>
       Todos los Derechos Reservados.
       <!--end::Copyright-->
