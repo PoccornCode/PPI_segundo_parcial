@@ -1,67 +1,139 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro de Evento Académico</title>
-  <link rel="stylesheet" href="registro_evento.css">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Inscripción a Eventos</title>
+
+  <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
+  <script src="../js/color-thema.js"></script>
+  <!--end::Theme Init-->
+
+  <!--begin::Accessibility Meta Tags-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#007bff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+  <!--end::Accessibility Meta Tags-->
+
+  <!--begin::Primary Meta Tags-->
+  <meta name="title" content="Inscripción a Eventos - Eventos Académicos" />
+  <meta name="description" content="Inscripción de estudiantes a eventos académicos mediante usuario y clave" />
+  <meta name="keywords" content="bootstrap 5, adminlte, eventos académicos, inscripciones, asistencia" />
+  <!--end::Primary Meta Tags-->
+
+  <!--begin::Accessibility Features-->
+  <meta name="supported-color-schemes" content="light dark" />
+  <link rel="preload" href="../css/adminlte.css" as="style" />
+  <!--end::Accessibility Features-->
+
+  <!--begin::Fonts-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/source-sans-3@5.3.0/index.css" integrity="sha256-5UwXtC6TaPHCAbVQ59waEAqOssHyhn/twyuLRRWszzo=" crossorigin="anonymous" media="print" onload="this.media = 'all'" />
+  <!--end::Fonts-->
+
+  <!--begin::Third Party Plugin(OverlayScrollbars)-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/styles/overlayscrollbars.min.css" crossorigin="anonymous" />
+  <!--end::Third Party Plugin(OverlayScrollbars)-->
+
+  <!--begin::Third Party Plugin(Bootstrap Icons)-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" crossorigin="anonymous" />
+  <!--end::Third Party Plugin(Bootstrap Icons)-->
+
+  <!--begin::Required Plugin(AdminLTE)-->
+  <link rel="stylesheet" href="../css/adminlte.css" />
+  <!--end::Required Plugin(AdminLTE)-->
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
-<body>
-  <main class="contenedor-evento">
-    <section class="tarjeta-evento">
-      <header class="encabezado-evento">
-        <h1>Registro de evento académico</h1>
-        <p>Completa los datos que se almacenarán en la tabla de eventos.</p>
-      </header>
 
-      <div class="cuerpo-evento">
-        <form action="guardar_evento.php" method="POST">
-          <div class="rejilla">
-            <div class="campo col-4">
-              <label for="codigo">Código</label>
-              <input type="text" id="codigo" name="codigo" maxlength="30" placeholder="Ej. EVT-2026-01" required>
-              <span class="ayuda">Identificador único del evento.</span>
-            </div>
+<body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
+  <div class="app-wrapper">
+    <!--begin::Header & Sidebar-->
+    <?php
+    include "../nav.php";
+    include "../menu-lateral.php";
+    ?>
+    <!--end::Header & Sidebar-->
 
-            <div class="campo col-8">
-              <label for="nombre">Nombre del evento</label>
-              <input type="text" id="nombre" name="nombre" maxlength="120" placeholder="Ej. Seminario de Bases de Datos" required>
-            </div>
-
-            <div class="campo col-12">
-              <label for="descripcion">Descripción</label>
-              <textarea id="descripcion" name="descripcion" placeholder="Temas, ponentes o detalles generales del evento..."></textarea>
-            </div>
-
-            <div class="campo col-6">
-              <label for="lugar">Lugar</label>
-              <input type="text" id="lugar" name="lugar" maxlength="120" placeholder="Ej. Auditorio Fac. Multidisciplinaria" required>
-            </div>
-
-            <div class="campo col-3">
-              <label for="fecha">Fecha</label>
-              <input type="date" id="fecha" name="fecha" required>
-            </div>
-
-            <div class="campo col-3">
-              <label for="hora">Hora</label>
-              <input type="time" id="hora" name="hora" required>
-            </div>
-
-            <div class="campo col-4">
-              <label for="cupo_total">Cupo disponible</label>
-              <input type="number" id="cupo_total" name="cupo_total" min="1" step="1" placeholder="Ej. 50" required>
-              <span class="ayuda">Al insertarse, el trigger inicializa el cupo disponible.</span>
+    <main class="app-main">
+      <div class="app-content-header">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-2"></div>
+            <div class="col-sm-6">
+              <h1 class="mb-0 fs-3">Inscripción a Eventos</h1>
             </div>
           </div>
-
-          <div class="acciones">
-            <button type="reset" class="btn-limpiar">Limpiar</button>
-            <button type="submit" class="btn-guardar">Guardar evento</button>
-          </div>
-        </form>
+        </div>
       </div>
-    </section>
-  </main>
+
+      <div class="app-content">
+        <div class="container-fluid">
+          <div class="row g-4">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+              <div class="card card-primary card-outline mb-4">
+                <div class="card-header">
+                  <div class="card-title">Formulario de Inscripción</div>
+                </div>
+                <form id="formulario" method="POST" onsubmit="return false;">
+                  <div class="card-body">
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <label for="evento_id" class="form-label">Evento académico</label>
+                        <select class="form-select" id="evento_id" name="evento_id" required>
+                          <option value="">Cargando eventos...</option>
+                        </select>
+                        <div class="form-text" id="detalle-evento">Selecciona un evento para ver cupos, fecha y lugar.</div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="usuario" class="form-label">Usuario del estudiante</label>
+                        <input type="text" class="form-control" id="usuario" name="usuario" maxlength="50" placeholder="Ingresa tu usuario" required />
+                      </div>
+
+                      <div class="col-md-6">
+                        <label for="clave" class="form-label">Clave</label>
+                        <input type="password" class="form-control" id="clave" name="clave" placeholder="Ingresa tu clave" required />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer d-flex justify-content-end gap-2">
+                    <button type="reset" class="btn btn-outline-secondary" id="btnLimpiar">Limpiar</button>
+                    <button type="button" class="btn btn-primary" id="btnGuardar">
+                      <i class="bi bi-check-lg me-1"></i>Guardar
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!--begin::Footer-->
+    <?php
+    include "../footer.php";
+    ?>
+    <!--end::Footer-->
+  </div>
+
+  <!--begin::Third Party Plugin(OverlayScrollbars)-->
+  <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.16.0/browser/overlayscrollbars.browser.es6.min.js" crossorigin="anonymous"></script>
+  <!--end::Third Party Plugin(OverlayScrollbars)-->
+  <!--begin::Required Plugin(popperjs for Bootstrap 5)-->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+  <!--end::Required Plugin(popperjs for Bootstrap 5)-->
+  <!--begin::Required Plugin(Bootstrap 5)-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+  <!--end::Required Plugin(Bootstrap 5)-->
+  <!--begin::Required Plugin(AdminLTE)-->
+  <script src="../js/adminlte.js"></script>
+  <!--end::Required Plugin(AdminLTE)-->
+  <!--begin::OverlayScrollbars Configure-->
+  <script src="../js/para-el-menu.js"></script>
+  <script src="../js/JSInscripcion.js?v=<?php echo filemtime('../js/JSInscripcion.js'); ?>"></script>
 </body>
+
 </html>
