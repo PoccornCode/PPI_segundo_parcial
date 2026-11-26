@@ -1,7 +1,4 @@
 <?php
-// Cabecera común. Funciona tanto desde la raíz como desde /forms
-$enForms = basename(dirname($_SERVER['SCRIPT_FILENAME'])) === 'forms';
-$raiz = $enForms ? '../' : '';
 $nombreSesion = $_SESSION['nombreEstudiante'] ?? 'Usuario';
 ?>
 <!--begin::Header-->
@@ -14,7 +11,7 @@ $nombreSesion = $_SESSION['nombreEstudiante'] ?? 'Usuario';
         </a>
       </li>
       <li class="nav-item d-none d-md-block">
-        <a href="<?php echo $raiz; ?>index.php" class="nav-link">Inicio</a>
+        <a href="<?php echo $raiz; ?>panel.php" class="nav-link">Inicio</a>
       </li>
     </ul>
     <ul class="navbar-nav ms-auto">

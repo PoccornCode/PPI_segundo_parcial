@@ -6,7 +6,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Si ya inició sesión, puede ir directamente al sistema.
 if (!empty($_SESSION['autenticado'])) {
-    header("Location: index.php");
+    header("Location: panel.php");
     exit();
 }
 ?>

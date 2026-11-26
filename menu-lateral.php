@@ -1,5 +1,7 @@
 <?php
 $paginaActual = basename($_SERVER['PHP_SELF']);
+$rutaFormularios = $enForms ? '' : 'forms/';
+$menuEstudiantesActivo = $paginaActual === 'estudiantes.php';
 
 // Páginas del menú Configuración > Ruta
 $paginasEvento = [
@@ -34,9 +36,9 @@ $menuInscripcionActivo = in_array($paginaActual, $paginasInscripcion);
     <!--begin::Sidebar Brand-->
     <div class="sidebar-brand">
         <!--begin::Brand Link-->
-        <a href="../index.html" class="brand-link">
+        <a href="<?= $raiz ?>panel.php" class="brand-link">
             <!--begin::Brand Image-->
-            <img src="../assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
+            <img src="<?= $raiz ?>assets/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image opacity-75 shadow" />
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
             <span class="brand-text fw-light">SysEdu</span>
@@ -80,14 +82,14 @@ $menuInscripcionActivo = in_array($paginaActual, $paginasInscripcion);
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="evento.php"
+                                    <a href="<?= $rutaFormularios ?>evento.php"
                                         class="nav-link <?= $paginaActual == 'evento.php' ? 'active' : '' ?>">
                                         <i class="nav-icon bi bi-record-circle-fill"></i>
                                         <p>Nuevo</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="lista-evento.php"
+                                    <a href="<?= $rutaFormularios ?>lista-evento.php"
                                         class="nav-link <?= $paginaActual == 'lista-evento.php' ? 'active' : '' ?>">
                                         <i class="nav-icon bi bi-record-circle-fill"></i>
                                         <p>Consultar</p>
@@ -108,14 +110,14 @@ $menuInscripcionActivo = in_array($paginaActual, $paginasInscripcion);
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="evento.php"
+                                    <a href="<?= $rutaFormularios ?>evento.php"
                                         class="nav-link <?= $paginaActual == 'inscripcion.php' ? 'active' : '' ?>">
                                         <i class="nav-icon bi bi-record-circle-fill"></i>
                                         <p>Nuevo</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="lista-evento.php"
+                                    <a href="<?= $rutaFormularios ?>lista-evento.php"
                                         class="nav-link <?= $paginaActual == 'lista-evento.php' ? 'active' : '' ?>">
                                         <i class="nav-icon bi bi-record-circle-fill"></i>
                                         <p>Consultar</p>
@@ -128,29 +130,14 @@ $menuInscripcionActivo = in_array($paginaActual, $paginasInscripcion);
                 </li>
 
 
-                <!-- <li class="nav-item <?= $menuEmpleadoActivo ? 'menu-open' : '' ?>">
-                    <a href="#" class="nav-link <?= $menuEmpleadoActivo ? 'active' : '' ?>">
-                        <i class="nav-icon bi bi-box-arrow-in-right"></i>
-                        <p>
-                            Empleado
-                            <i class="nav-arrow bi bi-chevron-right"></i>
-                        </p>
+                <li class="nav-item">
+                    <a href="<?= $rutaFormularios ?>estudiantes.php"
+                        class="nav-link<?= $menuEstudiantesActivo ? ' active' : '' ?>"
+                        <?= $menuEstudiantesActivo ? 'aria-current="page"' : '' ?>>
+                        <i class="nav-icon bi bi-mortarboard"></i>
+                        <p>Estudiantes</p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="empleado.php" class="nav-link <?= $paginaActual == 'empleado.php' ? 'active' : '' ?>">
-                                <i class="nav-icon bi bi-circle"></i>
-                                <p>Nuevo</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="lista-empleados.php" class="nav-link <?= $paginaActual == 'lista-empleados.php' ? 'active' : '' ?>">
-                                <i class="nav-icon bi bi-circle"></i>
-                                <p>Consulta</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li> -->
+                </li>
 
                 <!--
                 <li class="nav-item">
@@ -282,7 +269,8 @@ $menuInscripcionActivo = in_array($paginaActual, $paginasInscripcion);
                         <p>Informational</p>
                     </a>
                 </li>
-            </ul>-->
+                -->
+            </ul>
 
                 <!--end::Sidebar Menu-->
 

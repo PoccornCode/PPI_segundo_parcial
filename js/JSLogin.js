@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
-                window.location.href = "index.php";
+                window.location.href = "panel.php";
             } else {
                 Swal.fire({
                     icon: "info",

@@ -1,3 +1,4 @@
+<?php require __DIR__ . '/../config/sesion-requerida.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
