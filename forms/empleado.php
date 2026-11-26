@@ -42,7 +42,6 @@
   <!--begin::Required Plugin(AdminLTE)-->
   <link rel="stylesheet" href="../css/adminlte.css" />
   <!--end::Required Plugin(AdminLTE)-->
-
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 

@@ -29,7 +29,7 @@ $paginasInscripcion = [
 $menuInscripcionActivo = in_array($paginaActual, $paginasInscripcion);
 
 ?>
-
+<!--begin::Sidebar-->
 <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
     <!--begin::Sidebar Brand-->
     <div class="sidebar-brand">
