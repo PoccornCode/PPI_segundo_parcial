@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
+<!-- ha25004 -->
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Registro de Eventos - Eventos Académicos</title>
+  <title>Registro de Eventos</title>
 
   <!--begin::Theme Init (prevents flash of incorrect theme on load, #6043)-->
   <script src="../js/color-thema.js"></script>
@@ -57,19 +57,9 @@
       <div class="app-content-header">
         <div class="container-fluid">
           <div class="row">
+            <div class="col-2"></div>
             <div class="col-sm-6">
               <h1 class="mb-0 fs-3">Registro de Eventos</h1>
-            </div>
-            <div class="col-sm-6">
-              <nav aria-label="breadcrumb">
-                <ol class="breadcrumb float-sm-end">
-                  <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-                  <li class="breadcrumb-item"><a href="#">Eventos</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">
-                    Registro de Eventos
-                  </li>
-                </ol>
-              </nav>
             </div>
           </div>
         </div>
@@ -78,14 +68,14 @@
       <div class="app-content">
         <div class="container-fluid">
           <div class="row g-4">
-
+            <div class="col-lg-2"></div>
             <!-- Formulario principal de registro de evento -->
             <div class="col-lg-8">
               <div class="card card-primary card-outline mb-4">
                 <div class="card-header">
                   <div class="card-title">Datos del Evento Académico</div>
                 </div>
-                <form action="guardar_evento.php" method="POST">
+                <form id="formulario" method="POST" onsubmit="return false;">
                   <div class="card-body">
                     <div class="row g-3">
                       <div class="col-md-4">
@@ -93,7 +83,6 @@
                         <input type="text" class="form-control" id="codigo" name="codigo" maxlength="30" placeholder="Ej. EVT-2026-01" required />
                         <div class="form-text">Código único del evento.</div>
                       </div>
-
                       <div class="col-md-8">
                         <label for="nombre" class="form-label">Nombre del evento</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" maxlength="120" placeholder="Ej. Congreso de Ingeniería de Sistemas" required />
@@ -131,30 +120,11 @@
                   </div>
                   <div class="card-footer d-flex justify-content-end gap-2">
                     <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
-                    <button type="submit" class="btn btn-primary">
-                      <i class="bi bi-check-lg me-1"></i>Guardar evento
+                    <button type="button" class="btn btn-primary" id="btnGuardar">
+                      <i class="bi bi-check-lg me-1"></i>Guardar
                     </button>
                   </div>
                 </form>
-              </div>
-            </div>
-
-            <!-- Panel lateral informativo -->
-            <div class="col-lg-4">
-              <div class="card card-info card-outline mb-4">
-                <div class="card-header">
-                  <div class="card-title">Reglas de Registro</div>
-                </div>
-                <div class="card-body">
-                  <div class="callout callout-info mb-3">
-                    El <strong>código</strong> debe ser único para evitar duplicados en el catálogo de eventos.
-                  </div>
-                  <ul class="list-unstyled mb-0 small text-secondary">
-                    <li class="mb-2"><i class="bi bi-dot me-1"></i>Indica con claridad el <strong>lugar</strong>, <strong>fecha</strong> y <strong>hora</strong>.</li>
-                    <li class="mb-2"><i class="bi bi-dot me-1"></i>El cupo ingresado define la capacidad inicial para las inscripciones.</li>
-                    <li><i class="bi bi-dot me-1"></i>Cada inscripción válida descontará 1 cupo automáticamente en la base de datos.</li>
-                  </ul>
-                </div>
               </div>
             </div>
 
@@ -167,7 +137,6 @@
     <?php
     include "../footer.php"
     ?>
-
     <!--end::Footer-->
   </div>
 
@@ -183,8 +152,11 @@
   <!--begin::Required Plugin(AdminLTE)-->
   <script src="../js/adminlte.js"></script>
   <!--end::Required Plugin(AdminLTE)-->
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!--begin::OverlayScrollbars Configure-->
   <script src="../js/para-el-menu.js"></script>
+  <script src="../js/EventoJS.js"></script>
 </body>
 
-</html> 
+</html>

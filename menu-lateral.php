@@ -22,8 +22,8 @@ $menuConfiguracionActivo = in_array(
 
 // Páginas del menú Empleado
 $paginasEmpleado = [
-    'empleado.php',
-    'lista-empleados.php'
+    'evento.php',
+    'lista-evento.php'
 ];
 
 $menuEmpleadoActivo = in_array($paginaActual, $paginasEmpleado);
@@ -79,13 +79,13 @@ $menuEmpleadoActivo = in_array($paginaActual, $paginasEmpleado);
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="ruta.php" class="nav-link <?= $paginaActual == 'evento.php' ? 'active' : '' ?>">
+                                    <a href="evento.php" class="nav-link <?= $paginaActual == 'evento.php' ? 'active' : '' ?>">
                                         <i class="nav-icon bi bi-record-circle-fill"></i>
                                         <p>Nuevo</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="lista-ruta.php" class="nav-link <?= $paginaActual == 'lista-evento.php' ? 'active' : '' ?>">
+                                    <a href="lista-evento.php" class="nav-link <?= $paginaActual == 'lista-evento.php' ? 'active' : '' ?>">
                                         <i class="nav-icon bi bi-record-circle-fill"></i>
                                         <p>Consultar</p>
                                     </a>
