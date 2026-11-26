@@ -1,13 +1,4 @@
 
-<?php
-session_start();
-
-// Si ya inició sesión, no tiene que ver el login otra vez
-if (!empty($_SESSION['autenticado'])) {
-    header("Location: index.php");
-    exit();
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 

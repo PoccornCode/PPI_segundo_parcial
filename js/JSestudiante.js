@@ -39,7 +39,7 @@ if (formulario) {
     ////////////////////BOTON CANCELAR
 
     btnCancelar.addEventListener("click", function() {
-        window.location.href = "../index.php";
+        window.location.href = "../panel.php";
     });
 
     ////////////////////GUARDAR ESTUDIANTE
